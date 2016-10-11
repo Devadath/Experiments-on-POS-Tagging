@@ -5,10 +5,18 @@ A code for finding the Inter-Annotator-Agreement for POS tagged data(using BIS T
 import sys, os
  
 class AgreementMatrix():
+ '''
+ This class creates the inter annotator matrix.
+ 
+ '''
  
     def __init__(self):
         self.i = 0
+       
+        #Tagset : One may change the tagset below according to your purpose.
         self.tags = ["unk","N","N_NN","N_NNP","N_NST","PR","PR_PRP","PR_PRF","PR_PRL","PR_PRC","PR_PRQ","DM","DM_DMD","DM_DMR","DM_DMQ","V","V_VM","V_VM_VF","V_VM_VNF","V_VM_VINF","V_VN","V_VAUX","JJ","RB","PSP","CC","CC_CCD","CC_CCS","CC_CCS_UT","RP","RP_RPD","RP_CL","RP_INJ","RP_INTF","RP_NEG","QT","QT_QTF","QT_QTC","QT_QTO","RD","RD_RDF","RD_SYM","RD_PUNC","RD_UNK","RD_ECH"]
+        
+        #This creates a matrix of size - No(Tokens)*No(Tags). Here '45' = No(Tags), '666' = No(Tokens)
         self.matrix = [[0 for i in range(45)]for j in range(666)]
  
     def openFile(self,data):
